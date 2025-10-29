@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdrd1j73yfuso"]
+
+[ext_resource type="PackedScene" uid="uid://buijaojbxhbi0" path="res://Scenes/email.tscn" id="2_rxw1a"]
+[ext_resource type="Theme" uid="uid://8l0wr37avohv" path="res://Assets/UI/theme.tres" id="2_v03ju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82jak"]
+bg_color = Color(0.14509805, 0.2, 0.25882354, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+
+[node name="Screen" type="Panel"]
+offset_left = 206.0
+offset_top = 44.0
+offset_right = 923.0
+offset_bottom = 471.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_82jak")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 705.0
+offset_bottom = 419.0
+theme = ExtResource("2_v03ju")
+current_tab = 0
+
+[node name="Email" type="Panel" parent="TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Email"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 191.0
+offset_bottom = 361.0
+theme = ExtResource("2_v03ju")
+
+[node name="Emails" type="VBoxContainer" parent="TabContainer/Email/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Email" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+layout_mode = 2
+
+[node name="Email2" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+layout_mode = 2
+
+[node name="Email3" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+layout_mode = 2
+
+[node name="Email4" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+layout_mode = 2
+
+[node name="Email5" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+layout_mode = 2
+
+[node name="Minigame" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+metadata/_tab_index = 1

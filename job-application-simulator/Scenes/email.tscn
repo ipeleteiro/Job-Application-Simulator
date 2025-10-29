@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://buijaojbxhbi0"]
+
+[ext_resource type="Texture2D" uid="uid://c6gh7jablrfmy" path="res://Assets/UI/Untitled_Artwork 89.png" id="1_umtb6"]
+[ext_resource type="Texture2D" uid="uid://cqr1ll8wydm6g" path="res://Assets/UI/Untitled_Artwork 91.png" id="2_6xuhd"]
+[ext_resource type="Texture2D" uid="uid://ct0y5w4fomusd" path="res://Assets/UI/Untitled_Artwork 90.png" id="3_ec30c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3bb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_umtb6")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6xuhd")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ec30c")
+}],
+"loop": true,
+"name": &"unopened",
+"speed": 5.0
+}]
+
+[node name="Email" type="Control"]
+custom_minimum_size = Vector2(170, 83)
+layout_mode = 3
+anchor_right = 0.15
+anchor_bottom = 0.136
+offset_right = 0.19999695
+offset_bottom = -0.12800598
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(90, 46)
+scale = Vector2(2.621, 2.621)
+sprite_frames = SubResource("SpriteFrames_e3bb5")
+animation = &"opened"
