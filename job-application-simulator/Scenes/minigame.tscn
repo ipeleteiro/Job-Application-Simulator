@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://f6ct7o7a2y3b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+
+[node name="Minigame" type="Panel"]
+offset_right = 697.0
+offset_bottom = 387.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 130.0
+offset_right = 667.0
+offset_bottom = 239.0
+text = "crazy stuff happening"

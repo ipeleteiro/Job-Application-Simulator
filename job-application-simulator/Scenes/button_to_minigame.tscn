@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwokrr2nfbiq"]
+
+[ext_resource type="Theme" uid="uid://8l0wr37avohv" path="res://Assets/UI/theme.tres" id="1_c7dww"]
+[ext_resource type="Script" uid="uid://cyc5ayo2donla" path="res://Scripts/button_to_minigame.gd" id="1_vd0mq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a832w"]
+
+[node name="Button" type="Button"]
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.038000003
+anchor_top = -0.017
+anchor_right = 0.042000003
+anchor_bottom = 0.015000001
+offset_left = -0.22399902
+offset_top = 0.016000748
+offset_right = -0.3840027
+offset_bottom = 0.27999973
+theme = ExtResource("1_c7dww")
+text = "Click Here :)"
+script = ExtResource("1_vd0mq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8.500004, 4.5000005)
+scale = Vector2(94.99999, 33)
+texture = SubResource("CanvasTexture_a832w")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
