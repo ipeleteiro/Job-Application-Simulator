@@ -12,7 +12,6 @@ extends Panel
 @onready var link_to_minigame: Button = $TabContainer/Email/Panel/Body/ScrollContainer/VBoxContainer/Button
 
 
-
 func _ready() -> void:
 	link_to_minigame.connect("make_new_tab", create_tab)
 	email.button_pressed = true
@@ -53,22 +52,37 @@ func load_email(company, emailID):
 		link_to_minigame.visible = true
 		#button.image =
 		link_to_minigame.link_to_minigame_scene = cur_email["link"]
+		link_to_minigame.company = company
+		link_to_minigame.emailID = emailID
 	else:
 		link_to_minigame.visible = false
 
 
-func create_tab(link_to_minigame_scene):
+func create_tab(link_to_minigame_scene, company, emailID):
 	for tab in tab_container.get_children():
-		if minigames[link_to_minigame_scene] in tab.name:
+		if minigames[link_to_minigame_scene][0] in tab.name:
 			print("no duplicates")
 			return
 	var tab_scene = load(link_to_minigame_scene)
 	var new_tab = tab_scene.instantiate()
-	new_tab.name = minigames[link_to_minigame_scene]
+	new_tab.name = minigames[link_to_minigame_scene][0]
+	new_tab.connect(minigames[link_to_minigame_scene][1], end_minigame)
+	active_minigames[new_tab.name] = {"company":company, "emailID":emailID}
 	tab_container.add_child(new_tab)
 
-var minigames = {"res://Scenes/minigame.tscn":"Cover Letter"}
+var minigames = {"res://Scenes/mama's_burgeria.tscn":["Mama's Burgeria", "mama_results"]}
+var active_minigames = {}
 
+func end_minigame(minigame_name, result):
+	var minigame_info = active_minigames[minigame_name]
+	var company = minigame_info["company"]
+	var emailID = minigame_info["emailID"]
+	emails[company]["timer"] = 0
+	if result:
+		var cur_email = emails[company]["emails"][emailID]
+		emails[company]["current_email"] = cur_email["next_email_id"]
+	else:
+		emails[company]["current_email"] = "reject"
 
 
 var emails = {
@@ -95,11 +109,11 @@ var emails = {
 					"added": false,
 					"title":"New opening at Company",
 					"text":"You should apply fr fr",
-					"link":"res://Scenes/minigame.tscn",
+					"link":"res://Scenes/mama's_burgeria.tscn",
 					"next_email_id":"1"},
-				"1":{"time_offset": 0,
+				"1":{"time_offset": 2,
 					"added": false,
-					"title":"New opening at Company",
+					"title":"WOWE A NEW EMAIL???",
 					"text":"You should apply fr fr",
 					"link":"link to scene",
 					"next_email_id":"1"}
