@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://djs5qipqn8uke"]
+
+[ext_resource type="Script" path="res://Scripts/mama's_burgeria/mama's_burgeria.gd" id="1_7rquo"]
+[ext_resource type="FontFile" uid="uid://dfpj2simmpy1h" path="res://Assets/UI/MedodicaRegular.otf" id="2_hi31b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_hi31b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 328.5366, 282, 0, 0, 0, 0, 311.70734, 282, -2.7105324, 30.561253, 2.7105324, -30.561253, 299, 87, 0, 0, 0, 0, 310, 57, -20.341652, -1.9959637, 20.341652, 1.9959637, 329.7317, 45, -11.293726, -14.641457, 11.293726, 14.641457, 351, 58, -0.14496805, -22.189777, 0.14496805, 22.189777, 359, 87, 0, 0, 0, 0, 345.82925, 282, 0, 0, 0, 0, 328.99997, 282)
+}
+point_count = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hi31b"]
+bg_color = Color(0.9573788, 0.5367757, 0.37348643, 1)
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbusr"]
+bg_color = Color(0.95686275, 0.5372549, 0.37254903, 1)
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iogum"]
+bg_color = Color(0.4, 0.22352941, 0.15294118, 1)
+
+[node name="Minigame" type="Panel"]
+offset_right = 697.0
+offset_bottom = 387.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+script = ExtResource("1_7rquo")
+metadata/_tab_index = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-104, 42.94546)
+scale = Vector2(1.3666667, 0.86898774)
+curve = SubResource("Curve2D_hi31b")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path2D"]
+position = Vector2(328.5366, 282)
+rotation = 3.1415925
+scale = Vector2(0.8, 1)
+
+[node name="BottomPatty" type="Panel" parent="Path2D/PathFollow"]
+offset_left = -109.0
+offset_top = 0.023254395
+offset_right = 108.975586
+offset_bottom = 27.023254
+theme_override_styles/panel = SubResource("StyleBoxFlat_hi31b")
+
+[node name="TopPatty" type="Panel" parent="Path2D/PathFollow"]
+offset_left = 109.16333
+offset_top = 1.0232544
+offset_right = 327.32666
+offset_bottom = 28.046509
+rotation = 3.1415927
+theme_override_styles/panel = SubResource("StyleBoxFlat_vbusr")
+
+[node name="Result" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 87.0
+offset_right = 544.0
+offset_bottom = 231.0
+theme_override_colors/default_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_hi31b")
+theme_override_font_sizes/normal_font_size = 48
+text = "Press SPACE to start burger flipping"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 35.0
+offset_right = 144.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iogum")
+
+[node name="Result" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -29.0
+offset_right = 350.0
+offset_bottom = 69.0
+theme_override_colors/default_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_hi31b")
+theme_override_font_sizes/normal_font_size = 32
+text = "colour aim:"
+
+[node name="Progress" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 2.0
+offset_right = 690.0
+offset_bottom = 100.0
+theme_override_colors/default_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
+theme_override_fonts/normal_font = ExtResource("2_hi31b")
+theme_override_font_sizes/normal_font_size = 32
+text = "colour aim:"
+horizontal_alignment = 2
