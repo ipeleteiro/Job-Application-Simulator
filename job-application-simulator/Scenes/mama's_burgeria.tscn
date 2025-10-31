@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://djs5qipqn8uke"]
+[gd_scene load_steps=8 format=3 uid="uid://d31ur78r2m6fu"]
 
-[ext_resource type="Script" path="res://Scripts/mama's_burgeria/mama's_burgeria.gd" id="1_7rquo"]
+[ext_resource type="Script" uid="uid://dn2ot8rk0g2ud" path="res://Scripts/mama's_burgeria/mama's_burgeria.gd" id="1_7rquo"]
 [ext_resource type="FontFile" uid="uid://dfpj2simmpy1h" path="res://Assets/UI/MedodicaRegular.otf" id="2_hi31b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
