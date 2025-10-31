@@ -10,8 +10,10 @@ var index := 0
 var reveal_rate := 5
 @onready var time: Label = $"Typing UI/Time"
 @onready var result: Label = $"Typing UI/Result"
+@onready var exit: Label = $"Typing UI/Exit"
 
 var timer = 0
+var end = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
@@ -23,13 +25,24 @@ func _process(delta: float) -> void:
 		timer += delta
 		time.text = "%.2f" % (20 - timer) + "s"
 	
+	if (20-timer) < 0:
+		time.text = "%.2f" % (0) + "s TIME'S UPPPP"
+	
 	
 	if index == essay.length() - 1 and (20 - timer) >= 0:
 		result.text = "SUCESSFUL Cover Letter"
+		end = true
 	elif (20 - timer) <= 0 and index <= essay.length():
 		result.text = "FAILED Cover Letter"
+		end = true
+	
+	if end:
+		exit.text = "Press space bar to exit."
+		
 		
 	if Input.is_action_just_pressed("space"):
+		if end:
+			queue_free()
 		_reveal_text()
 
 func _reveal_text():
