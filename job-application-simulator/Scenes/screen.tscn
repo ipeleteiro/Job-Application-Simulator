@@ -44,6 +44,7 @@ offset_right = 705.0
 offset_bottom = 419.0
 theme = ExtResource("2_v03ju")
 current_tab = 0
+tab_focus_mode = 0
 
 [node name="Email" type="Panel" parent="TabContainer"]
 layout_mode = 2

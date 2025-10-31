@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://dq5pe6jnpdr8m"]
+
+[ext_resource type="Script" uid="uid://7xcn4ogbmtbi" path="res://scripts/player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cs7hf6j7lf2oo" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0079.png" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://c457w10apy55" path="res://assets/light.png" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bsdal2rgea6ad" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0077.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://c7u0ccqxv1st2" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0052.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://b5xj8yckmhj4y" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0080.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://df033avjyjeul" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0078.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://deuie7ubgqwhc" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0050.png" id="6_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://buwdlt7uus4l5" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0053.png" id="8_jej6c"]
+[ext_resource type="Texture2D" uid="uid://b472krpkdch8p" path="res://assets/kenney_rpg-urban-pack/Tiles/tile_0051.png" id="10_f1ej7"]
+[ext_resource type="PackedScene" uid="uid://b1wm7dsfoch7a" path="res://scenes/weapon.tscn" id="11_oprun"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d2wvv")
+}],
+"loop": true,
+"name": &"away",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3v2ag")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jej6c")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f1ej7")
+}],
+"loop": true,
+"name": &"towards",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvl01"]
+size = Vector2(10, 13)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_sweqy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(0.02246094, 0.023174511)
+texture = ExtResource("2_tuyoq")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_n7ghd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_nvl01")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Weapon" parent="." instance=ExtResource("11_oprun")]
+z_index = 5
