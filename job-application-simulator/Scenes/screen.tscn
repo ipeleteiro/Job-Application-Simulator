@@ -1,0 +1,173 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdrd1j73yfuso"]
+
+[ext_resource type="FontFile" uid="uid://dfpj2simmpy1h" path="res://Assets/UI/MedodicaRegular.otf" id="1_fq6pb"]
+[ext_resource type="Script" uid="uid://dbvh1f64sn4nb" path="res://Scripts/window_logic.gd" id="1_rpafq"]
+[ext_resource type="PackedScene" uid="uid://buijaojbxhbi0" path="res://Scenes/email.tscn" id="2_rxw1a"]
+[ext_resource type="Theme" uid="uid://8l0wr37avohv" path="res://Assets/UI/theme.tres" id="2_v03ju"]
+[ext_resource type="PackedScene" uid="uid://diwokrr2nfbiq" path="res://Scenes/button_to_minigame.tscn" id="5_plcl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82jak"]
+bg_color = Color(0.14509805, 0.2, 0.25882354, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_plcl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v03ju"]
+bg_color = Color(0.87058824, 0.80784315, 0.7411765, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpafq"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Screen" type="Panel"]
+offset_left = 206.0
+offset_top = 44.0
+offset_right = 923.0
+offset_bottom = 471.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_82jak")
+script = ExtResource("1_rpafq")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 705.0
+offset_bottom = 419.0
+theme = ExtResource("2_v03ju")
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="Email" type="Panel" parent="TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Email"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 191.0
+offset_bottom = 361.0
+theme = ExtResource("2_v03ju")
+
+[node name="Emails" type="VBoxContainer" parent="TabContainer/Email/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Email" parent="TabContainer/Email/ScrollContainer/Emails" instance=ExtResource("2_rxw1a")]
+visible = false
+layout_mode = 2
+button_group = SubResource("ButtonGroup_plcl3")
+
+[node name="Panel" type="Panel" parent="TabContainer/Email"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 8.0
+offset_right = 687.0
+offset_bottom = 376.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v03ju")
+
+[node name="Sender" type="Panel" parent="TabContainer/Email/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 473.0
+offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpafq")
+
+[node name="Sender" type="RichTextLabel" parent="TabContainer/Email/Panel/Sender"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 453.0
+offset_bottom = 26.0
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("1_fq6pb")
+theme_override_font_sizes/normal_font_size = 16
+text = "From: someone@company.com"
+
+[node name="Title" type="Panel" parent="TabContainer/Email/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 41.0
+offset_right = 473.0
+offset_bottom = 68.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpafq")
+
+[node name="Title" type="RichTextLabel" parent="TabContainer/Email/Panel/Title"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 452.0
+offset_bottom = 26.0
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("1_fq6pb")
+theme_override_font_sizes/normal_font_size = 16
+text = "This is a company email"
+
+[node name="Body" type="Panel" parent="TabContainer/Email/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 75.0
+offset_right = 474.0
+offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rpafq")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Email/Panel/Body"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 460.0
+offset_bottom = 282.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Email/Panel/Body/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Text1" type="RichTextLabel" parent="TabContainer/Email/Panel/Body/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(456, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("1_fq6pb")
+theme_override_font_sizes/normal_font_size = 16
+text = "Hello,
+We are so excited about you!
+
+Please click below to start the next stage of the application process :)"
+fit_content = true
+
+[node name="Button" parent="TabContainer/Email/Panel/Body/ScrollContainer/VBoxContainer" instance=ExtResource("5_plcl3")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Text2" type="RichTextLabel" parent="TabContainer/Email/Panel/Body/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(456, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("1_fq6pb")
+theme_override_font_sizes/normal_font_size = 16
+text = "Good luck,
+Someone from a company"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Email"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 2.0
+offset_right = 155.0
+offset_bottom = 54.0
+theme_override_colors/default_color = Color(0.23921569, 0.3529412, 0.5019608, 1)
+theme_override_fonts/normal_font = ExtResource("1_fq6pb")
+theme_override_font_sizes/normal_font_size = 48
+text = "EMAIL"

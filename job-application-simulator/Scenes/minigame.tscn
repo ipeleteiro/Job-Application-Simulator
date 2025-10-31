@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6ct7o7a2y3b"]
+
+[ext_resource type="PackedScene" uid="uid://cgtceljt3kd2a" path="res://Scenes/office_minimap/root.tscn" id="1_ij8rg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxw1a"]
+bg_color = Color(0.9607843, 0.9372549, 0.9137255, 1)
+
+[node name="Minigame" type="Panel"]
+offset_right = 697.0
+offset_bottom = 387.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxw1a")
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 130.0
+offset_right = 667.0
+offset_bottom = 239.0
+text = "crazy stuff happening"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 691.0
+offset_bottom = 380.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(685, 375)
+render_target_update_mode = 4
+
+[node name="root" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_ij8rg")]
+position = Vector2(384, 150)
+scale = Vector2(0.5, 0.5)

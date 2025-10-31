@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://buijaojbxhbi0"]
+
+[ext_resource type="ButtonGroup" uid="uid://bdmnmapyxh3o0" path="res://Assets/UI/email_button_group.tres" id="1_e3bb5"]
+[ext_resource type="Script" uid="uid://cku3chgyd6q4g" path="res://Scripts/email.gd" id="1_ec30c"]
+[ext_resource type="Texture2D" uid="uid://c6gh7jablrfmy" path="res://Assets/UI/Untitled_Artwork 89.png" id="1_umtb6"]
+[ext_resource type="Texture2D" uid="uid://cqr1ll8wydm6g" path="res://Assets/UI/Untitled_Artwork 91.png" id="2_6xuhd"]
+[ext_resource type="Texture2D" uid="uid://ct0y5w4fomusd" path="res://Assets/UI/Untitled_Artwork 90.png" id="3_ec30c"]
+[ext_resource type="FontFile" uid="uid://dfpj2simmpy1h" path="res://Assets/UI/MedodicaRegular.otf" id="4_6xuhd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3bb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_umtb6")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6xuhd")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ec30c")
+}],
+"loop": true,
+"name": &"unopened",
+"speed": 5.0
+}]
+
+[node name="Email" type="Button"]
+custom_minimum_size = Vector2(170, 83)
+anchors_preset = -1
+anchor_right = 0.15
+anchor_bottom = 0.136
+offset_right = 0.19999695
+offset_bottom = -0.12800598
+toggle_mode = true
+button_group = ExtResource("1_e3bb5")
+flat = true
+script = ExtResource("1_ec30c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(90, 46)
+scale = Vector2(2.621, 2.621)
+sprite_frames = SubResource("SpriteFrames_e3bb5")
+animation = &"opened"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 64.940865
+offset_bottom = 32.18123
+
+[node name="Sender" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("4_6xuhd")
+theme_override_font_sizes/normal_font_size = 13
+text = "Sender"
+fit_content = true
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.14509805, 0.2, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("4_6xuhd")
+theme_override_font_sizes/normal_font_size = 13
+text = "Email Title"
+fit_content = true
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

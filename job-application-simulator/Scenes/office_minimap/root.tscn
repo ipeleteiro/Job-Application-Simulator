@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgtceljt3kd2a"]
+
+[ext_resource type="Script" uid="uid://bxw1dsgwovmnq" path="res://Scripts/office_minimap/root.gd" id="1_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://bgxpq8qcpqr1e" path="res://Scenes/office_minimap/cave.tscn" id="1_twpsu"]
+[ext_resource type="PackedScene" uid="uid://dq5pe6jnpdr8m" path="res://Scenes/office_minimap/player.tscn" id="2_lrqlo"]
+[ext_resource type="Script" uid="uid://t77fn4oi0e6e" path="res://Scripts/office_minimap/sub_viewport.gd" id="4_j287u"]
+[ext_resource type="PackedScene" uid="uid://m7wa2t5hdia4" path="res://Scenes/office_minimap/minimap.tscn" id="4_sqa0i"]
+[ext_resource type="PackedScene" uid="uid://coily36hnnvtm" path="res://Scenes/office_minimap/enemy.tscn" id="5_jh1ax"]
+[ext_resource type="Texture2D" uid="uid://cjt53j2fbystp" path="res://Assets/office_minimap/kenney_desert-shooter-pack_1.0/PNG/Weapons/Tiles/tile_0027.png" id="6_5sfjl"]
+[ext_resource type="PackedScene" uid="uid://2wsyp6dm88k5" path="res://Scenes/office_minimap/spawner.tscn" id="6_kycxp"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5sfjl"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_lrqlo")
+
+[node name="Cave" parent="." instance=ExtResource("1_twpsu")]
+position = Vector2(0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_lrqlo")]
+position = Vector2(0, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-1128.5001, -651.00006)
+scale = Vector2(4703, 3340)
+texture = SubResource("CanvasTexture_5sfjl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.08274146, 0.08274145, 0.08274143, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+offset_left = 575.0
+offset_top = 7.0
+offset_right = 675.0
+offset_bottom = 117.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(100, 110)
+render_target_update_mode = 4
+script = ExtResource("4_j287u")
+
+[node name="Minimap" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("4_sqa0i")]
+position = Vector2(-250, -40)
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+position = Vector2(102, 101)
+scale = Vector2(5, 5)
+
+[node name="Tile" type="Sprite2D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+z_index = 3
+position = Vector2(52.000004, 51.000004)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_5sfjl")
+
+[node name="Enemy" parent="." instance=ExtResource("5_jh1ax")]
+position = Vector2(-107, -68)
+
+[node name="Spawner" parent="." instance=ExtResource("6_kycxp")]
+position = Vector2(167, -213)
