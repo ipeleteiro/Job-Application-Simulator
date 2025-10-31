@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4iu2bdoqse2b"]
+
+[ext_resource type="Script" uid="uid://b8vs63yaioc60" path="res://Scripts/cover_letter_logic.gd" id="1_3x1v8"]
+
+[sub_resource type="Theme" id="Theme_tc1vs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40xa3"]
+bg_color = Color(0.23921569, 0.34901962, 0.8784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpeps"]
+
+[node name="Website" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3x1v8")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 656.0
+theme = SubResource("Theme_tc1vs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_40xa3")
+
+[node name="Cover Letter" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 30.0
+offset_right = 541.0
+offset_bottom = 623.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hpeps")
+
+[node name="Label" type="Label" parent="Cover Letter"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 33.0
+offset_right = 344.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 28
+text = "Cover Letter"
+uppercase = true
+
+[node name="Label2" type="Label" parent="Cover Letter"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 85.0
+offset_right = 470.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 16
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+autowrap_mode = 3
+
+[node name="Typing UI" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 34.0
+offset_right = 1087.0
+offset_bottom = 627.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hpeps")
+
+[node name="Label" type="Label" parent="Typing UI"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 30.0
+offset_right = 404.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 28
+text = "Spam your spacebar"
+uppercase = true
+
+[node name="Label2" type="Label" parent="Typing UI"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 94.0
+offset_right = 324.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 28
+text = "TIME LIMIT"
+uppercase = true
+
+[node name="Time" type="Label" parent="Typing UI"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 149.0
+offset_right = 283.0
+offset_bottom = 188.0
+theme_override_font_sizes/font_size = 28
+text = "20.00s"
+
+[node name="Result" type="Label" parent="Typing UI"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 343.0
+offset_right = 415.0
+offset_bottom = 382.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
