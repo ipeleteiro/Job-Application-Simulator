@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://der8pocotnjn5"]
+
+[ext_resource type="Texture2D" uid="uid://ofu4dyavhs0y" path="res://Assets/referrals.png" id="1_006xg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t5x6p"]
+texture = ExtResource("1_006xg")
+texture_region_size = Vector2i(64, 64)
+
+[sub_resource type="TileSet" id="TileSet_u25m3"]
+sources/0 = SubResource("TileSetAtlasSource_t5x6p")
+
+[node name="Panel" type="Panel"]
+offset_right = 695.0
+offset_bottom = 385.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_u25m3")
